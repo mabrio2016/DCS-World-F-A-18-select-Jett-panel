@@ -1,13 +1,10 @@
 DCS World, short for Digital Combat Simulator World, is an impressive and highly detailed free-to-play digital battlefield game. 
 Its primary goal is to provide an authentic and realistic simulation of military aircraft, tanks, ground vehicles, and ships.
 
-Building Hardware Panels
-With DCS-BIOS libraryy, you can build your own hardware control panels and connect them to DCS World game.
-DCS-BIOS library bridges the gap between the digital world of DCS World and the physical realm of buttons, switches, and knobs.
+Creating custom hardware control panels and integrating them with DCS World simulators truly bridges the gap between the virtual FA-18 Hornet cockpit panels and the tangible world of tactile buttons, switches, and knobs.
 
-Building your own hardware control panels to interface with DCS World is like turning your living room into a cockpit.
+Building your own hardware control panels to interface with DCS World is like turning your living room into a real cockpit.
 
-![image](https://github.com/user-attachments/assets/8b5bcfa8-f439-4499-af9f-b3707c1687e6)
+![FA-18 Hornet cockpit panels project_1](https://github.com/user-attachments/assets/ab8d4643-6e46-410e-baff-7d5a8ac8ad6e)
 
-![Jett panel finished](https://github.com/user-attachments/assets/e362460d-04a7-4a49-a07f-9d53c0077c58)
-
+![FA-18 Hornet cockpit panels project_2](https://github.com/user-attachments/assets/f834bb21-3e6d-4033-b1dd-98beb5ae7836)
