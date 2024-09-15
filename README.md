@@ -5,7 +5,7 @@ Creating custom hardware control panels and integrating them with DCS World simu
 
 Building your own hardware control panels to interface with DCS World is like turning your living room into a real cockpit.
 
-![FA-18 Hornet cockpit panels project_1](https://github.com/user-attachments/assets/ab8d4643-6e46-410e-baff-7d5a8ac8ad6e)
+![FA-18 Hornet cockpit panels project_1](https://github.com/user-attachments/assets/1903f2fd-fe08-4485-8459-7ed9db46d407)
 
 ![FA-18 Hornet cockpit panels project_2](https://github.com/user-attachments/assets/f834bb21-3e6d-4033-b1dd-98beb5ae7836)
 
