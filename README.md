@@ -1,9 +1,17 @@
-DCS World, short for Digital Combat Simulator World, is an impressive and highly detailed free-to-play digital battlefield game. 
-Its primary goal is to provide an authentic and realistic simulation of military aircraft, tanks, ground vehicles, and ships.
+DCS World
 
-Creating custom hardware control panels and integrating them with DCS World simulators truly bridges the gap between the virtual FA-18 Hornet cockpit panels and the tangible world of tactile buttons, switches, and knobs.
+DCS World, short for Digital Combat Simulator World, is an impressive and highly detailed free-to-play digital battlefield game. Its primary goal is to provide an authentic and realistic simulation of military aircraft, tanks, ground vehicles, and ships.
 
+Creating custom hardware control panels and integrating them with DCS World simulators truly bridges the gap between the virtual on-screen cockpit panels and the tangible world of tactile buttons, switches, and knobs.
 Building your own hardware control panels to interface with DCS World is like turning your living room into a real cockpit.
+
+Here’s an example of a DIY control panel—one of the many that make up the F/A-18 Hornet cockpit.
+Demo Video on YouTube: https://youtu.be/xeCImWbiI0U
+
+The total cost for materials, including switches, Arduino Nano, PCF8574 IO Expansion Boards, and white acrylic sheets, came to a total of $40. 
+Assembling, wiring and testing everything took approximately 5 hours of labor.
+
+
 
 Demo Video on YouTube: https://youtu.be/xeCImWbiI0U
 
