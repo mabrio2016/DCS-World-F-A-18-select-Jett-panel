@@ -10,10 +10,8 @@
 #include <PCF8575.h>
 #include "Arduino.h"
 
-
 Adafruit_PCF8574 pcf1;  // PCF8574 has 8 input ports
 PCF8575 pcf2(0x20);     // PCF8575 has 16 input ports
-
 bool flag_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 bool flagOld_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 
@@ -24,26 +22,25 @@ DcsBios::Switch2Pos hookBypassSw("HOOK_BYPASS_SW", 3);
 
 void setup() {
     Serial.begin(250000);
-
     DcsBios::setup();
     if (!pcf1.begin(0x27, &Wire)) {
-        Serial.println("Couldn't find first PCF8574");
-        while (1);
+        Serial.println("Couldn't find PCF8574 (0x27)");
     }
  
     for (uint8_t p = 0; p < 8; p++) {
         pcf1.pinMode(p, INPUT_PULLUP);
     }
-    for (uint8_t p = 0; p <= 15; p++) {  
-        pcf2.pinMode(p, INPUT);
+    for (uint8_t p = 0; p <= 14; p++) {  
+        pcf2.pinMode(p, INPUT_PULLUP);
     }
-    pcf2.begin();   // Only used for the PCF8575 lib
+    pcf2.pinMode(15, INPUT);
+    if (!pcf2.begin()) { 
+        Serial.println("Couldn't find PCF8575 (0x20)");
+    }
 }
-
 void loop()
 {
     DcsBios::loop();
-
     // Start of Jett Panel //
     int last_Switch;
     int Switch;
@@ -121,12 +118,11 @@ void loop()
         static bool RADAR_SW_PULL_Flag = 0;
         if (!pcf2.digitalRead(p1))
         {
-
      // Start of RADAR Rotary Switch 4 positions //
             if (p1 == 0) {
                 Switch1 = 0;
                 if (last_Switch1 != Switch1) Serial.println("RADAR_SW 0");
-                delay(100);
+                delay(30);
             }
             if (p1 == 1) {
                 Switch1 = 1;
@@ -137,11 +133,11 @@ void loop()
                 if (last_Switch1 != Switch1) {
                     if (RADAR_SW_PULL_Flag == 1) {
                         Serial.println("RADAR_SW_PULL 1");
-                        delay(200);
+                        delay(100);
                     }
                     Serial.println("RADAR_SW 2");
                     RADAR_SW_PULL_Flag = 0;
-                    delay(100);
+                    delay(30);
                 }
             }
             if (p1 == 3) {
@@ -149,11 +145,11 @@ void loop()
                 if (last_Switch1 != Switch1) {
                     if (RADAR_SW_PULL_Flag == 0) {
                         Serial.println("RADAR_SW_PULL 1");
-                        delay(200);
+                        delay(100);
                     }
                     Serial.println("RADAR_SW 3");
                     RADAR_SW_PULL_Flag = 1;
-                    delay(100);
+                    delay(30);
                 }
             }
             last_Switch1 = Switch1;
@@ -170,71 +166,71 @@ void loop()
             if (p2 == 4) {
                 Switch2 = 4;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 0");
-                delay(100);
+                delay(30);
             }
             if (p2 == 5) {
                 Switch2 = 5;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 1");
-                delay(100);
+                delay(30);
             }
             if (p2== 6) {
                 Switch2 = 6;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 2");
-                delay(100);
+                delay(30);
             }
             if (p2== 7) {
                 Switch2 = 7;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 3");
-                delay(100);
+                delay(30);
             }
             if (p2== 8) {
                 Switch2 = 8;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 4");
-                delay(100);
+                delay(30);
             }
             if (p2== 9) {
                 Switch2 = 9;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 5");
-                delay(100);
+                delay(30);
             }
             if (p2== 10) {
                 Switch2 = 10;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 6");
-                delay(100);
+                delay(30);
             }
             if (p2== 11) {
                 Switch2 = 11;
                 if (last_Switch2 != Switch2) Serial.println("INS_SW 7");
-                delay(100);
+                delay(30);
             }
             last_Switch2 = Switch2;
-            delay(50);
+            delay(10);
         }
     }
     // End of INS Rotary Switch 8 positions //
     // Start of Two position Switches //
     if (pcf2.digitalRead(12) == 0) {
         flag_[12] = true;
-        if (flagOld_[12] != flag_[12]) Serial.println("LST_NFLR_SW 1");
-        delay(100);
+        if (flagOld_[12] != flag_[12]) Serial.println("LST_NFLR_SW 0");
+        delay(30);
         flagOld_[12] = flag_[12];
     }
     if (pcf2.digitalRead(12) == 1) {
         flag_[12] = false;
-        if (flagOld_[12] != flag_[12]) Serial.println("LST_NFLR_SW 0");
-        delay(100);
+        if (flagOld_[12] != flag_[12]) Serial.println("LST_NFLR_SW 1");
+        delay(30);
         flagOld_[12] = flag_[12];
     }
     if (pcf2.digitalRead(13) == 0) {
         flag_[13] = true;
-        if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 1");
-        delay(100);
+        if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 0");
+        delay(30);
         flagOld_[13] = flag_[13];
     }
     if (pcf2.digitalRead(13) == 1) {
         flag_[13] = false;
-        if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 0");
-        delay(100);
+        if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 1");
+        delay(30);
         flagOld_[13] = flag_[13];
     }
     // End of Two position Switches //
@@ -242,25 +238,25 @@ void loop()
     if (pcf2.digitalRead(14) == 1) {
         flag_[14] = true;
         if (flagOld_[14] != flag_[14]) Serial.println("FLIR_SW 1");
-        delay(100);
+        delay(30);
         flagOld_[14] = flag_[14];
     }
     if (pcf2.digitalRead(14) == 0) {
         flag_[14] = false;
         if (flagOld_[14] != flag_[14]) Serial.println("FLIR_SW 0");
-        delay(100);
+        delay(30);
         flagOld_[14] = flag_[14];
     }
     if (pcf2.digitalRead(15) == 1) {
         flag_[15] = true;
         if (flagOld_[15] != flag_[15]) Serial.println("FLIR_SW 1");
-        delay(100);
+        delay(30);
         flagOld_[15] = flag_[15];
     }
     if (pcf2.digitalRead(15) == 0) {
         flag_[15] = false;
         if (flagOld_[15] != flag_[15]) Serial.println("FLIR_SW 2");
-        delay(100);
+        delay(30);
         flagOld_[15] = flag_[15];
     }
     // End of Three position Switches //
