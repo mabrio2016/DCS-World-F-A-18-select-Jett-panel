@@ -1,3 +1,4 @@
+
 // SerialSpeed = 250000 baud
 
 //SEL_JETT_KNOB 0
@@ -14,6 +15,8 @@ Adafruit_PCF8574 pcf1;  // PCF8574 has 8 input ports
 PCF8575 pcf2(0x20);     // PCF8575 has 16 input ports
 bool flag_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 bool flagOld_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
+static int pcf1_flag = 1;  // Used to disable the Jett Panel Switches scan code section if the multiples I2C board does not connect.
+static int pcf2_flag = 1;  // Used to disable the SNSR Panel Switches scan code section if the multiples I2C board does not connect.
 
 /* paste code snippets from the reference documentation here */
 DcsBios::Switch2Pos selJettBtn("SEL_JETT_BTN", 4);
@@ -25,6 +28,7 @@ void setup() {
     DcsBios::setup();
     if (!pcf1.begin(0x27, &Wire)) {
         Serial.println("Couldn't find PCF8574 (0x27)");
+        pcf1_flag = 0;
     }
  
     for (uint8_t p = 0; p < 8; p++) {
@@ -36,11 +40,14 @@ void setup() {
     pcf2.pinMode(15, INPUT);
     if (!pcf2.begin()) { 
         Serial.println("Couldn't find PCF8575 (0x20)");
+        pcf2_flag= 0;
     }
 }
 void loop()
 {
-    DcsBios::loop();
+  DcsBios::loop();
+  if (pcf1_flag == 1)
+  {
     // Start of Jett Panel //
     int last_Switch;
     int Switch;
@@ -108,9 +115,12 @@ void loop()
         }
         // End of Two position Switches //
     }
-    // End of Jett Panel //
+  } 
+    // End of Jett Panel //  
 
     // Start of SNSR Panel //
+  if (pcf2_flag == 1)
+  {  
     int last_Switch1;
     int Switch1;
     for (uint8_t p1 = 0; p1 <= 3; p1++)
@@ -260,5 +270,6 @@ void loop()
         flagOld_[15] = flag_[15];
     }
     // End of Three position Switches //
+  } 
     // End of SNSR Panel //
 } 
