@@ -15,13 +15,13 @@ Adafruit_PCF8574 pcf1;  // PCF8574 has 8 input ports
 PCF8575 pcf2(0x20);     // PCF8575 has 16 input ports
 bool flag_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 bool flagOld_[] = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
-static int pcf1_flag = 1;  // Used to disable the Jett Panel Switches scan code section if the multiples I2C board does not connect.
-static int pcf2_flag = 1;  // Used to disable the SNSR Panel Switches scan code section if the multiples I2C board does not connect.
+static int pcf1_flag = 1;
+static int pcf2_flag = 1;
 
 /* paste code snippets from the reference documentation here */
 DcsBios::Switch2Pos selJettBtn("SEL_JETT_BTN", 4);
 DcsBios::Switch3Pos flapSw("FLAP_SW", 7, 6);
-DcsBios::Switch2Pos hookBypassSw("HOOK_BYPASS_SW", 3);
+DcsBios::Switch2Pos hookBypassSw("HOOK_BYPASS_SW", 5);
 
 void setup() {
     Serial.begin(250000);
@@ -231,30 +231,34 @@ void loop()
         delay(30);
         flagOld_[12] = flag_[12];
     }
+    delay(30);  // this Deelay is important to give time for the Multiplex to refrech the port status
     if (pcf2.digitalRead(13) == 0) {
         flag_[13] = true;
         if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 0");
-        delay(30);
+        //delay(30);
         flagOld_[13] = flag_[13];
     }
+    delay(30);
     if (pcf2.digitalRead(13) == 1) {
         flag_[13] = false;
         if (flagOld_[13] != flag_[13]) Serial.println("LTD_R_SW 1");
-        delay(30);
+        //delay(30);
         flagOld_[13] = flag_[13];
     }
     // End of Two position Switches //
     // Start of Three position Switches //
+    delay(30);
     if (pcf2.digitalRead(14) == 1) {
         flag_[14] = true;
         if (flagOld_[14] != flag_[14]) Serial.println("FLIR_SW 1");
-        delay(30);
+        //delay(30);
         flagOld_[14] = flag_[14];
     }
+    delay(30);
     if (pcf2.digitalRead(14) == 0) {
         flag_[14] = false;
         if (flagOld_[14] != flag_[14]) Serial.println("FLIR_SW 0");
-        delay(30);
+        //delay(30);
         flagOld_[14] = flag_[14];
     }
     if (pcf2.digitalRead(15) == 1) {
