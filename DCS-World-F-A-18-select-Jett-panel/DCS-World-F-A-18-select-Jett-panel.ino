@@ -1,4 +1,4 @@
- 
+
 // SerialSpeed = 250000 baud
 
 //SEL_JETT_KNOB 0
@@ -286,7 +286,7 @@ void loop() {
   }
     // End of SNSR Panel //
     //----------------------------------------------------------------------//
-  // ECS Panel //
+  // Start of ECS Panel //
   if (pcf3_flag == 1) {
     // Start of Rotary Switch 5 poles //
     int last_Switch;
@@ -334,7 +334,6 @@ void loop() {
       }
     // End of Two position Switches //
     // Start of Three position Switches //
-    //delay(15);
     if (pcf3.digitalRead(4) == 1) {
       flag_3[4] = true;
       if (flagOld_3[4] != flag_3[4]) Serial.println("CABIN_PRESS_SW 1");
@@ -415,8 +414,7 @@ void loop() {
       //delay(15);
       flagOld_3[9] = flag_3[9];
     }
-
-
     // End of Three position Switches //
+    // End of ECS Panel //
   }
 }}
