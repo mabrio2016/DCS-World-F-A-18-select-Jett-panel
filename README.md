@@ -20,4 +20,3 @@ Assembling, wiring and testing everything took approximately 5 hours of labor.
 
 The full Arduino C++ code can be found on this link https://github.com/mabrio2016/DCS-World-F-A-18-select-Jett-panel/blob/main/DCS-World-F-A-18-select-Jett-panel/DCS-World-F-A-18-select-Jett-panel.ino
 
-[FA-18 Hornet cockpit panels project.pdf](https://github.com/user-attachments/files/17850793/FA-18.Hornet.cockpit.panels.project.pdf)
