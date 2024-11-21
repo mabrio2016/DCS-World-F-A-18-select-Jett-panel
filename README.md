@@ -10,6 +10,8 @@ Demo Video on YouTube: [https://youtu.be/xeCImWbiI0U](https://www.youtube.com/wa
 
 Documentation about this project: [FA-18 Hornet cockpit panels project.pdf](https://github.com/user-attachments/files/17850793/FA-18.Hornet.cockpit.panels.project.pdf)
 
+The full Arduino C++ code can be found on this link https://github.com/mabrio2016/DCS-World-F-A-18-select-Jett-panel/blob/main/DCS-World-F-A-18-select-Jett-panel/DCS-World-F-A-18-select-Jett-panel.ino
+
 The total cost for materials, including switches, Arduino Nano, PCF8574 IO Expansion Boards, and white acrylic sheets, came to a total of $40. 
 Assembling, wiring and testing everything took approximately 5 hours of labor.
 
@@ -18,5 +20,5 @@ Assembling, wiring and testing everything took approximately 5 hours of labor.
 
 ![FA-18 Hornet cockpit panels project_2](https://github.com/user-attachments/assets/f834bb21-3e6d-4033-b1dd-98beb5ae7836)
 
-The full Arduino C++ code can be found on this link https://github.com/mabrio2016/DCS-World-F-A-18-select-Jett-panel/blob/main/DCS-World-F-A-18-select-Jett-panel/DCS-World-F-A-18-select-Jett-panel.ino
+
 
