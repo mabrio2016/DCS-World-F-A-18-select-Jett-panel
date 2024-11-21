@@ -6,14 +6,11 @@ Creating custom hardware control panels and integrating them with DCS World simu
 Building your own hardware control panels to interface with DCS World is like turning your living room into a real cockpit.
 
 Here’s an example of a DIY control panel—one of the many that make up the F/A-18 Hornet cockpit.
-Demo Video on YouTube: https://youtu.be/xeCImWbiI0U
+Demo Video on YouTube: [https://youtu.be/xeCImWbiI0U](https://www.youtube.com/watch?v=usfaG4hrLGM&t=5s)
 
 The total cost for materials, including switches, Arduino Nano, PCF8574 IO Expansion Boards, and white acrylic sheets, came to a total of $40. 
 Assembling, wiring and testing everything took approximately 5 hours of labor.
 
-
-
-Demo Video on YouTube: https://youtu.be/xeCImWbiI0U
 
 ![FA-18 Hornet cockpit panels project_1](https://github.com/user-attachments/assets/1903f2fd-fe08-4485-8459-7ed9db46d407)
 
