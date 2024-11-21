@@ -1,4 +1,4 @@
-DCS World
+# DCS World
 
 DCS World, short for Digital Combat Simulator World, is an impressive and highly detailed free-to-play digital battlefield game. Its primary goal is to provide an authentic and realistic simulation of military aircraft, tanks, ground vehicles, and ships.
 
