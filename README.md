@@ -8,6 +8,8 @@ Building your own hardware control panels to interface with DCS World is like tu
 Here’s an example of a DIY control panel—one of the many that make up the F/A-18 Hornet cockpit.
 Demo Video on YouTube: [https://youtu.be/xeCImWbiI0U](https://www.youtube.com/watch?v=usfaG4hrLGM&t=5s)
 
+Documentation about this project: [FA-18 Hornet cockpit panels project.pdf](https://github.com/user-attachments/files/17850793/FA-18.Hornet.cockpit.panels.project.pdf)
+
 The total cost for materials, including switches, Arduino Nano, PCF8574 IO Expansion Boards, and white acrylic sheets, came to a total of $40. 
 Assembling, wiring and testing everything took approximately 5 hours of labor.
 
@@ -18,3 +20,4 @@ Assembling, wiring and testing everything took approximately 5 hours of labor.
 
 The full Arduino C++ code can be found on this link https://github.com/mabrio2016/DCS-World-F-A-18-select-Jett-panel/blob/main/DCS-World-F-A-18-select-Jett-panel/DCS-World-F-A-18-select-Jett-panel.ino
 
+[FA-18 Hornet cockpit panels project.pdf](https://github.com/user-attachments/files/17850793/FA-18.Hornet.cockpit.panels.project.pdf)
